@@ -14,10 +14,10 @@ def user_input_is_valid(cl_args):
 def encrypt(text, rot):
 	# takes str text and int rot
 	# returns caesar encrypted text by rot position
-	newtext = []
+	newtext = ""
 	for char in text:
-		newtext.append(helpers.rotate_character(char, rot))
-	return "".join(newtext)
+		newtext += helpers.rotate_character(char, rot)
+	return newtext
 
 def main():
 	if not user_input_is_valid(argv):
