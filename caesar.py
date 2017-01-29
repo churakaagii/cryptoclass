@@ -1,4 +1,4 @@
-from helpers import alphabet_position, rotate_character
+import helpers
 from sys import argv, exit
 
 def user_input_is_valid(cl_args):
@@ -12,19 +12,19 @@ def user_input_is_valid(cl_args):
         return False
 
 def encrypt(text, rot):
-	'''takes str text and int rot
-	returns caesar encrypted text by rot position'''
+	# takes str text and int rot
+	# returns caesar encrypted text by rot position
 	newtext = []
 	for char in text:
-		newtext.append(rotate_character(char, rot))
+		newtext.append(helpers.rotate_character(char, rot))
 	return "".join(newtext)
-	
+
 def main():
 	if not user_input_is_valid(argv):
 	    print("usage: python3 caesar.py n")
 	    exit()
 	message = input("Type a message: \n")
 	print(encrypt(message, int(argv[1])))
-	
+
 if __name__ == "__main__":
 	main()
